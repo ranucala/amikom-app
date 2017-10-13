@@ -1,5 +1,8 @@
 package com.example.amikom.amikom_app;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +27,31 @@ public class MainActivity extends AppCompatActivity {
                 android.util.Log.d("--Amikom--",usr.getText().toString());
                 android.util.Log.d("--Amikom--",pwd.getText().toString());
 
-                Toast.makeText(getApplicationContext(),usr.getText().toString()+"is Logged in..",
-                        Toast.LENGTH_SHORT).show();
+                String user_name = usr.getText().toString();
+                String pass_ =  pwd.getText().toString();
+
+               if (user_name.equals("arif")&&pass_.equals("arif")){
+                   Toast.makeText(getApplicationContext(),"is Logged in..",Toast.LENGTH_SHORT).show();
+
+                   Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                   startActivity(intent);
+
+                   // edit preference
+                   SharedPreferences sf = getSharedPreferences("AmikomPref", Context.MODE_PRIVATE);
+                   SharedPreferences.Editor editor = sf.edit();
+
+                   editor.putString("usr",usr.getText().toString());
+                   editor.commit();
+
+                   finish();
+
+
+               }
+               else {
+                   Toast.makeText(getApplicationContext(), "Incorrect password or username", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
     }
