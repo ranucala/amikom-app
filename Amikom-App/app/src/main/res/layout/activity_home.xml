@@ -6,8 +6,27 @@
         android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="TextView" />
+        android:layout_marginTop="51dp" />
+
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="list"
+        android:layout_below="@+id/textWelcome"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnList"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="custom list" />
 
 </RelativeLayout>
